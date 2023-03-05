@@ -308,7 +308,7 @@ void testRemoveNode()
     removeNode(n1, 2);
     test[1] = search(n1, 2) == n5;
     printList(n1);
-    
+
     removeNode(n1, 2);
     printList(n1);
     try

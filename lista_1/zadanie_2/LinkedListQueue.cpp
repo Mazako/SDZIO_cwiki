@@ -27,7 +27,7 @@ public:
         {
             return nullptr;
         }
-        T* data = &this->head->data;
+        T *data = &this->head->data;
         auto *headPtr = this->head;
         head = head->next;
         delete headPtr;
@@ -52,17 +52,16 @@ public:
             head = tail;
         }
     }
-    
+
     void printQueue()
     {
-        auto* nodePtr = head;
+        auto *nodePtr = head;
         while (nodePtr)
         {
             cout << nodePtr->data << " ";
             nodePtr = nodePtr->next;
         }
         cout << endl;
-        
     }
 };
 
@@ -70,7 +69,8 @@ int main()
 {
     LinkedListQueue<string> *queue = new LinkedListQueue<string>();
     string msg = "";
-    do {
+    do
+    {
         cin >> msg;
         if (msg == "/")
         {

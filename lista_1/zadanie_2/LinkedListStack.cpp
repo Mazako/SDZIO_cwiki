@@ -36,7 +36,6 @@ public:
         T data = head->data;
         auto* headPtr = head;
         head = head->next;
-        delete headPtr;
         return &data;
     }
 
