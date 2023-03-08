@@ -45,7 +45,7 @@ public:
         tail = newNode;
         if (head != nullptr)
         {
-            tailPtr->next = tail;
+            tailPtr->next = newNode;
         }
         else
         {

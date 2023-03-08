@@ -5,35 +5,36 @@ class MaxHeap
 private:
     int maxLen;
     int size = 0;
-    int* array;
+    int *array;
 
-    inline int leftChild(int i) {return 2 * i + 1;}
-    
-    inline int rightChild(int i) {return 2 * i + 2;}
-    
-    inline int parent(int i) {return (i - 1) / 2;}
-    
-    void swap(int* a, int* b)
+    inline int leftChild(int i) { return 2 * i + 1; }
+
+    inline int rightChild(int i) { return 2 * i + 2; }
+
+    inline int parent(int i) { return (i - 1) / 2; }
+
+    void swap(int *a, int *b)
     {
         int tmp = *a;
         *a = *b;
         *b = tmp;
     }
 
-    //COMPLEXITY: O(n)
-    void buildWithFloyd(int* arr, int arrLen)
+    // COMPLEXITY: O(n)
+    void buildWithFloyd(int *arr, int arrLen)
     {
-        this->size = arrLen;
-        this-> array = arr;
-        for (int i = arrLen / 2; i > 0; i--)
+        this->maxLen = arrLen;
+        this->array = arr;
+        for (int i = arrLen / 2; i >= 0; i--)
         {
             heapify(i);
         }
     }
 
-    //COMPLEXITY: O(nlogN)
-    void buildStandard(int* arr, int arrLen)
+    // COMPLEXITY: O(nlogN)
+    void buildStandard(int *arr, int arrLen)
     {
+        this->maxLen = arrLen;
         this->array = new int[arrLen];
         for (int i = 0; i < arrLen; i++)
         {
@@ -41,7 +42,7 @@ private:
         }
     }
 
-    //COMPLEXITY: O(logN)
+    // COMPLEXITY: O(logN)
     void heapify(int n)
     {
         int left = leftChild(n);
@@ -63,7 +64,7 @@ private:
             heapify(largest);
         }
     }
-    
+
 public:
     MaxHeap()
     {
@@ -71,7 +72,7 @@ public:
         this->array = new int[maxLen];
     }
 
-    MaxHeap(int* arr, int arrLen, bool isFloyd)
+    MaxHeap(int *arr, int arrLen, bool isFloyd)
     {
         if (isFloyd)
         {
@@ -83,7 +84,7 @@ public:
         }
     }
 
-    inline int getMax() {return array[0];}
+    inline int getMax() { return array[0]; }
 
     void insert(int n)
     {
@@ -96,7 +97,7 @@ public:
         }
     }
 
-    //COMPLEXITY: O(logN)
+    // COMPLEXITY: O(logN)
     int remove()
     {
         int max = array[0];
@@ -114,25 +115,28 @@ public:
         }
         std::cout << std::endl;
     }
-
 };
+
+void excercise1And2();
+void excercise3();
 
 int main()
 {
-    MaxHeap *heap = new MaxHeap();
-    heap->insert(12);
-    heap->insert(10);
-    heap->insert(2);
-    heap->insert(123);
-    heap->insert(12123);
-    heap->remove();
-    heap->insert(1234);
-    heap->insert(200);
-    heap->insert(300);
-    heap->insert(100);
-    heap->insert(10000);
-    heap->remove();
+    excercise1And2();
+    excercise3();
+}
 
+void excercise1And2()
+{
+    int array[] = {7, 5, 9, 6, 7, 8, 10, 1, 11};
+    MaxHeap *heap = new MaxHeap(array, 9, false);
+    heap->remove();
     heap->printHeap();
+}
 
+void excercise3()
+{
+    int array[] = {7, 5, 9, 6, 7, 8, 10, 1, 11};
+    MaxHeap *heap = new MaxHeap(array, 9, false);
+    heap->printHeap();
 }
