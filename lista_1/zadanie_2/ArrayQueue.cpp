@@ -12,14 +12,7 @@ public:
         {
             resize(N * 2);
         }
-        if (N == 0)
-        {
-            array[0] = data;
-        }
-        else
-        {
-            array[lastIndex++] = data;
-        }
+        array[lastIndex++] = data;
         if (lastIndex == maxLen)
         {
             lastIndex = 0;
